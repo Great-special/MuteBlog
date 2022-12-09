@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} {{cat}} {% endblock %}
+  {% block main %}
+      <div class="container">
+        <div class="col-md-12">
+          <div class="category-title">
+       
+            <h1>{{cat}}</h1>
+        
+          </div>
+          {% for blog in blogs %}
+          <div class="blog-post">
+            <div class="blog-post-wrapper">
+              <div class="blog-post__info  blog-post__info--top">
+                <span>{{blog.category}}</span>
+              </div>
+              <div class="blog-post__title">
+                <h2><a href="{% url 'blog-detail' blog.slug %}">{{blog.title}}</a></h2>
+              </div>
+              <div class="blog-post__info">
+                <span>By <a href="#">{{blog.author.username}}</a></span>
+                <span>{{blog.created_at}}</span>
+                {% comment %} <span> {{comments.count}} Comments</span> {% endcomment %}
+              </div>
+            </div>
+            <div class="blog-post__image">
+              <a href="{% url 'blog-detail' blog.slug %}"><img src={{blog.image.url}} alt={{blog.title}}></a>
+            </div>
+            <div class="blog-post-wrapper">
+              <div class="blog-post__content">
+                <p>{{blog.content | safe}}</p>
+              </div>
+              <div class="blog-post__footer">
+                <a class="blog-post__footer-link" href="{% url 'blog-detail' blog.slug %}">Read more</a>
+                <div class="blog-post__footer-social">
+                  <span>Share:</span>
+                  <div class="blog-post__footer-social-icons">
+                    <a href="#">
+                      <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-facebook"></use>
+                      </svg>
+                    </a>
+                    <a href="#">
+                      <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-twitter"></use>
+                      </svg>
+                    </a>
+                    <a href="#">
+                      <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-google"></use>
+                      </svg>
+                    </a>
+                    <a href="#">
+                      <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-pinterest"></use>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+          <nav class="blog-pagination">
+            <ul class="blog-pagination__items">
+              <li class="blog-pagination__item  blog-pagination__item--active">
+                <a>1</a>
+              </li>
+              <li class="blog-pagination__item">
+                <a href="#">2</a>
+              </li>
+              <li class="blog-pagination__item">
+                <a href="#">Next Page</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+ {% endblock %}

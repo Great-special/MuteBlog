@@ -1,0 +1,236 @@
+{% extends 'base.html' %}
+{% block nav_home %}nav__item--active{% endblock %}
+{% load static %}
+
+{% block title %} Home {% endblock %}
+
+{% block section %}
+    <section class="container  top-slider">
+      <div class="col-md-12">
+        <div class="bxslider">
+          <div>
+            <div class="featured-image" style="background-image:url({% static 'img/img1.jpg' %});">
+              <div class="featured-image__bg"></div>
+              <div class="featured-image__content">
+                <span class="featured-image__content-category">
+                  <a href="#">Lifestyle</a>
+                </span>
+                <span class="featured-image__content-title">
+                  <a href="single-post.html">Fall In Love With Cat</a>
+                </span>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                  Suspendisse lobortis commodo ullamcorper.</p>
+                <span class="featured-image__content-link">
+                  <a href="single-post.html">Read More</a>
+                </span>
+              </div>  
+            </div>
+          </div>
+          <div>
+            <div class="featured-image" style="background-image:url({% static 'img/img2.jpg' %});">
+              <div class="featured-image__bg"></div>
+              <div class="featured-image__content">
+                <span class="featured-image__content-category">
+                  <a href="#">Journey</a>
+                </span>
+                <span class="featured-image__content-title">
+                  <a href="single-post.html">All You Need To Know About Forest</a>
+                </span>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                  Suspendisse lobortis commodo ullamcorper.</p>
+                <span class="featured-image__content-link">
+                  <a href="single-post.html">Read More</a>
+                </span>
+              </div> 
+            </div>
+          </div>
+          <div>
+            <div class="featured-image" style="background-image:url({% static 'img/img3.jpg' %});">
+              <div class="featured-image__bg"></div>
+              <div class="featured-image__content">
+                <span class="featured-image__content-category">
+                  <a href="#">INSPIRATION</a>
+                </span>
+                <span class="featured-image__content-title">
+                  <a href="single-post.html">Skills That You Can Learn From Book</a>
+                </span>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                  Suspendisse lobortis commodo ullamcorper.</p>
+                <span class="featured-image__content-link">
+                  <a href="single-post.html">Read More</a>
+                </span>
+              </div> 
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  {% endblock %}
+
+  {% block main %}
+    <main>
+      <div class="container">
+        <div class="col-md-9">
+          {% for blog in blogs %}
+          <div class="blog-post">
+            <div class="blog-post-wrapper">
+              <div class="blog-post__info  blog-post__info--top">
+                <span><a href="{% url 'category' blog.category %}">{{blog.category}}</a></span>
+              </div>
+              <div class="blog-post__title">
+                <h2><a href="{% url 'blog-detail' blog.slug %}">{{blog.title}}</a></h2>
+              </div>
+              <div class="blog-post__info">
+                <span>By <a href="#">{{blog.author.username}}</a></span>
+                <span>{{blog.created_at}}</span>
+                <span><a href="#">1 Comments</a></span>
+              </div>
+            </div>
+            <div class="blog-post__image">
+              <a href="{% url 'blog-detail' blog.slug %}"><img src={{blog.get_image_url}} alt={{blog.title}}></a>
+            </div>
+            <div class="blog-post-wrapper">
+              <div class="blog-post__content">
+                <p>{{blog.content | safe}}</p>
+              </div>
+              <div class="blog-post__footer">
+                <a class="blog-post__footer-link" href="{% url 'blog-detail' blog.slug %}">Read more</a>
+                <div class="blog-post__footer-social">
+                  <span>Share:</span>
+                  <div class="blog-post__footer-social-icons">
+                    <a href="#">
+                      <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-facebook"></use>
+                      </svg>
+                    </a>
+                    <a href="#">
+                      <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-twitter"></use>
+                      </svg>
+                    </a>
+                    <a href="#">
+                      <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-google"></use>
+                      </svg>
+                    </a>
+                    <a href="#">
+                      <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-pinterest"></use>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+          <!>
+          <!>
+          <!>
+        <div class="col-md-3  sidebar  sidebar--right">
+          <div class="sidebar-widget">
+            <h3>About Me</h3>
+            <div class="sidebar-widget__about-me">
+              <div class="sidebar-widget__about-me-image">
+                <img src="{% static 'img/about-me.jpg' %}" alt="About Me">
+              </div>
+              <p>Duis pretium convallis odio non varius. Nulla quis lorem metus.</p>
+              <span class="sidebar-widget__about-me-link">
+                <a href="{% url 'about'  %}">Read More</a>
+              </span>
+            </div>
+          </div>
+          <div class="sidebar-widget">
+            <h3>Follow Me</h3>
+            <div class="sidebar-widget__follow-me">
+              <div class="sidebar-widget__follow-me-icons">
+                <a href="#">
+                  <svg>
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-facebook"></use>
+                  </svg>
+                </a>
+                <a href="#">
+                  <svg>
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-twitter"></use>
+                  </svg>
+                </a>
+                <a href="#">
+                  <svg>
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-google"></use>
+                  </svg>
+                </a>
+                <a href="#">
+                  <svg>
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-pinterest"></use>
+                  </svg>
+                </a>
+                <a href="#">
+                  <svg>
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-instagram"></use>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="sidebar-widget">
+            <div class="sidebar-widget__banner">
+              <a href="#"><img src="{% static 'img/banner.jpg' %}" alt="Banner"></a>
+            </div>
+          </div>
+          <div class="sidebar-widget">
+            <h3>Lastes Posts</h3>
+            
+            <div class="sidebar-widget__popular">
+              {% for last in lastest %}
+              <div class="sidebar-widget__popular-item">
+                <div class="sidebar-widget__popular-item-image">
+                  <a href=""><img src={{last.get_image_url}} alt={{last.title}}></a>
+                </div>
+                <div class="sidebar-widget__popular-item-info">
+                  <div class="sidebar-widget__popular-item-date">
+                    <span>{{last.created_at}}</span>
+                  </div>
+                  <div class="sidebar-widget__popular-item-content">
+                    <a href={% url 'blog-detail' last.slug %}>{{last.title}}</a>
+                  </div>
+                </div>
+              </div>
+              {%  endfor %}
+            </div>
+          </div>
+          <div class="sidebar-widget">
+            <h3>Tag Cloud</h3>
+            <div class="sidebar-widget__tag-cloud">
+              <a href="#">Travel</a>
+              <a href="#">Music</a>
+              <a href="#">Arts</a>
+              <a href="#">Creative</a>
+              <a href="#">Fashion</a>
+            </div>
+          </div>
+          {% comment %} <div class="sidebar-widget">
+            <h3>Instagram</h3>
+            <div class="sidebar-widget__instagram">
+              <a href="#"><img src="img/instagram1.jpg" alt="Instagram"></a>
+              <a href="#"><img src="img/instagram2.jpg" alt="Instagram"></a>
+              <a href="#"><img src="img/instagram3.jpg" alt="Instagram"></a>
+              <a href="#"><img src="img/instagram4.jpg" alt="Instagram"></a>
+            </div>
+          </div> {% endcomment %}
+          <div class="sidebar-widget">
+            <h3>Subscribe</h3>
+            <div class="sidebar-widget__subscribe">
+              <p>Follow my latest news</p>
+              <form action="index.html">
+                <input type="text" placeholder="Your email">
+                <input class="sidebar-widget__subscribe-submit" type="submit" value="Submit">
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endblock %}
+
+          
+    

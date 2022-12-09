@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block nav_about %}nav__item--active{% endblock %}
+
+{% load static %}
+
+{% block title %} About Us {% endblock %}
+
+{% block main %}
+    <div class="container">
+      <div class="col-md-12">
+        <div class="blog-post  blog-post--fullwidth  blog-post--page">
+          <div class="blog-post__image">
+            <img src="{% static 'img/about-me.jpg' %}" alt="About Me">
+          </div>
+          <div class="blog-post-wrapper">
+            <div class="blog-post__title">
+              <h1>About Me</h1>
+            </div>
+            <div class="blog-post__content">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <a href="#">Suspendisse lobortis</a> commodo ullamcorper. Duis pretium convallis odio non varius. Nulla quis lorem metus. Fusce velit magna, ultricies quis elit sit amet, lacinia porttitor magna. Nulla scelerisque, ex quis imperdiet finibus, elit massa dictum arcu, et fermentum orci felis in ipsum. Suspendisse rutrum nec ipsum id feugiat. Nunc eu lacinia turpis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Etiam dapibus cursus justo.</p>
+              <p>Quis eu odio imperdiet dictumst faucibus quam nostra lorem lorem facilisi sem eget aliquet dignissim ornare ultrices ut. Posuere aliquam maecenas imperdiet sit nonummy. Aenean auctor nulla est auctor conubia porttitor elementum taciti hymenaeos Aptent dui justo donec porta neque Lacinia Dui aliquet. Cras ullamcorper nulla tortor eros maecenas sodales magnis natoque sit placerat parturient mattis nunc dictumst. Non molestie justo pharetra natoque nec. Integer tristique lacinia ultrices.</p>
+              <p>Mauris. Nunc quis justo felis Nibh Elementum eu proin lacinia magnis nonummy. Consectetuer. Enim maecenas. Dictum id sed. Habitasse magna taciti suscipit sociis tellus ad, diam orci et lorem purus in rutrum molestie parturient urna porta auctor inceptos venenatis eget congue. Metus vivamus Convallis, primis felis sodales nulla viverra dictum platea sed. Curabitur, varius justo platea. Libero litora, gravida nibh risus turpis ornare congue vestibulum mus.</p>
+            </div>
+            <div class="blog-post__footer">
+              <div class="blog-post__footer-social">
+                <span>Share:</span>
+                <div class="blog-post__footer-social-icons">
+                  <a href="#">
+                    <svg>
+                      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-facebook"></use>
+                    </svg>
+                  </a>
+                  <a href="#">
+                    <svg>
+                      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-twitter"></use>
+                    </svg>
+                  </a>
+                  <a href="#">
+                    <svg>
+                      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-google"></use>
+                    </svg>
+                  </a>
+                  <a href="#">
+                    <svg>
+                      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-pinterest"></use>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock %}
