@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-+^dz)jh2(=ezd=(z$%dpbou9u4!ne#32w@1t8!ykzqp--hz9w1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['muteblog.up.railway.app']
 
 
 # Application definition
